@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        .upcircle {
+            animation: move 3s ease-in  infinite ;
+        }
+        .bottomcircle{
+            animation: move 3s ease-in-out  infinite ;
+        }
+        @keyframes move {
+            0%{
+                 transform: translateY(0) translateX(0);
+            }
+            100%{
+                 transform: translateY(10px) translateX(20px);
+            }
+        }
+    .btn {
+    width: 140px;
+    height: 30px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11px; 
+    box-shadow: 5px 5px 7px 0px #0000003f;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    z-index: -1;
+    transform-origin: left;
+    transition:all 0.8s;
+    transform: scaleX(0); 
+}
+.btn:hover{
+    color: black;
+}
+.btn i {
+    margin-right: 6px; /* small gap between icon and text */
+    transition: color 0.3s;
+}
+.btn:hover i {
+    background-color: black;
+}
+.btn:hover::before{
+    transform: scaleX(1); 
+}
+
+    </style>
+</head>
+<body>
+     <div id="wrapper" class="m-0 p-0 box-border w-full h-[100vh] ">
+         <div class="container bg-black min-w-[100%] h-[100%] relative overflow-x-hidden flex justify-center items-center ">
+            <!-- Circle-Div -->
+        <!-- Top-Div -->
+        <div class="h-40 w-40 absolute top-10 left-110 rounded-full bg-gradient-to-tr from-pink-500 to-orange-400 shadow-[0_0_40px_rgba(255,0,0,0.6)] upcircle z-0"></div>
+        <!-- Bottom-Circle -->
+         <img src="purple.png" alt="" class="absolute  top-115 right-120 bottomcircle" width="260px" height="260px">
+        <!-- Center-Div -->
+        <div class="border-2 border-white bg-[#ffffff59]  rounded-4xl  w-[350px] min-h-[400px] relative">
+            <!-- Content-Div -->
+            <div class="flex flex-col items-center h-full w-full gap-y-8 absolute">
+        <img src="Tony.jpg" class="rounded-full w-[150px] h-[180px] pt-10">
+        <h1 class="text-3xl text-white font-medium">Tony Stark</h1>
+        <h2 class="text-xl text-white font-extralight">Founder, Stark Industries</h2>
+
+        <!-- Button-Div -->
+        <div class="text-white flex justify-center w-full gap-x-4 mx-auto">
+    <div class="flex relative">
+        <i class="fa-solid fa-share absolute mt-2 ml-2 "></i>
+        <button class="border-2 btn border-white px-5  text-sm font-medium " onclick="openModal()">Share My Profile</button>
+    </div>
+    <div class="flex ">
+        <button class="border-2 btn border-white px-5   text-center text-sm font-medium">Follow Me</button>
+    </div>
+</div>
+
+        </div>
+  
+</div>
+         </div>
+          <!-- Modal-Component -->
+         <div class="modal bg-[#00000088] backdrop-blur-[10px] opacity-90 fixed top-[35%] left-[34%] border-2 border-[#ffffff59] w-[500px] pr-5 pl-5 pt-5 pb-5 flex flex-col gap-y-5 scale-0 z-30  rounded-2xl transition-all duration-500 ease-in-out">
+            <div class="modalHeading flex justify-between">
+                <p class=" text-2xl text-white font-bold">Share My Profile</p>
+                <i class="fa-solid fa-xmark close pt-1 text-2xl text-white" onclick="closeModal()"></i>
+            </div>
+            
+            <div class="bg-white w-[450px] h-[1px] opacity-50 "></div>
+            <!-- Media-Div -->
+             <div class="modal-body flex flex-col gap-y-7 ">
+                <h3 class="text-white font-bold text-[18px]">Share this via</h3>
+                <!-- Icons-Div -->
+                <div class="icon flex gap-x-15">
+                    <a href="#" class="icon rounded-full w-11 h-11 border-blue-700 border-2 flex items-center justify-center" id="facebook">
+                    <i class="fa-brands fa-facebook-f text-2xl text-blue-700"></i>
+                    </a>
+                    
+
+<a href="#" class="icon rounded-full w-11 h-11 border-blue-400 border-2 flex items-center justify-center" id="twitter">
+    <i class="fa-brands fa-twitter text-2xl text-blue-400"></i>
+</a>
+
+<a href="#" class="icon rounded-full w-11 h-11 border-pink-600 border-2 flex items-center justify-center" id="instagram">
+    <i class="fa-brands fa-instagram text-2xl text-pink-600"></i>
+</a>
+
+<a href="#" class="icon rounded-full w-11 h-11 border-green-400 border-2 flex items-center justify-center" id="whatsapp">
+    <i class="fa-brands fa-whatsapp text-2xl text-green-400"></i>
+</a>
+
+<a href="#" class="icon rounded-full w-11 h-11 border-blue-800 border-2 flex items-center justify-center" id="telegram">
+    <i class="fa-brands fa-telegram text-2xl text-blue-800"></i>
+</a>
+
+                </div>
+          
+             </div>
+         </div>
+       <!-- Overlay-div -->
+              <div class="overlay  fixed top-0 left-0 right-0 bottom-0 opacity-0 bg-[#5f5f5f83] transition-all duration-0.5s ease-in-out pointer-events-none w-[100vw] h-[100vh]" onclick="closeModal()"></div>
+
+     </div>
+     <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+@import "tailwindcss";
+.active{
+    scale: 1;
+}
+.overlayActive{
+    opacity: 1;
+    pointer-events: initial;
+}
